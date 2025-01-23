@@ -1,7 +1,5 @@
 import 'react'
-const blogs = () => {
-
-    const blogPosts = [
+const blogs = ({post} ) => { [
         {
             id: "1",
             title: "10 Simple Ways to Reduce Plastic Waste in Your Daily Life",

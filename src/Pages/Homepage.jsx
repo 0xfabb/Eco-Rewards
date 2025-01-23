@@ -40,7 +40,7 @@ const Homepage = () => {
       <div className="hero w-full h-[400px] bg-gradient-to-r from-green-300 to-green-200 flex flex-col justify-center items-center text-center px-4 md:px-8 lg:px-16">
         <h1 className="text-green-300 text-sm md:text-lg lg:text-xl">....</h1>
         <h1 className="font-semibold text-2xl md:text-3xl lg:text-4xl mt-5 font-sans">
-          Welcome back {user.email}
+          Welcome back {auth.currentUser.displayName}
         </h1>
         <h3 className="text-lg md:text-xl lg:text-2xl mt-8 text-opacity-90">
           Small Actions Today Create Big Changes Tomorrow
