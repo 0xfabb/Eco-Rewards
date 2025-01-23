@@ -10,6 +10,9 @@ import Login from './Login';
 
 
 const Blogs = () => {
+
+
+
     const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -34,9 +37,9 @@ const Blogs = () => {
     return (
         <div>
             <LoggedNav />
-         <h1 className='text-white'>   Hey i am a blog</h1>
-         <Footer />
-        </div>
+     
+      <Footer />
+    </div>
 
     )
 }

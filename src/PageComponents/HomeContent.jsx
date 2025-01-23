@@ -31,33 +31,33 @@ const HomeContent = () => {
 
   return (
     <div>
-      <h1 className=" text-green-300 font-bold font-sans text-left ml-20 text-[28px] mt-12  ">
+      <h1 className="text-green-300 font-bold font-sans text-left ml-4 sm:ml-12 text-[28px] mt-12">
         Active Challenges
       </h1>
-      <div className="active-challenges flex ml-28 gap-16">
-        <div className="ch-1 bg-neutral-400 w-96 p-3 mt-16 h-44 rounded-xl">
+      <div className="active-challenges flex flex-wrap gap-8 justify-center mt-8">
+        {/* Challenge 1 */}
+        <div className="ch-1 bg-neutral-400 w-full sm:w-80 md:w-96 p-4 mt-8 h-auto rounded-xl">
           <div className="icons flex justify-between">
             <FontAwesomeIcon
               size="xl"
               icon={faMotorcycle}
-              className=" p-2"
+              className="p-2"
               style={{ color: "green" }}
             />
-            <h3 className="bg-green-300 m-1 rounded-full px-1.5 text-green-800 ">
+            <h3 className="bg-green-300 m-1 rounded-full px-1.5 text-green-800">
               7 days left
             </h3>
           </div>
-          <h1 className="mt-2 ml-1.5 font-bold font-sans">
-            Zero Emmision Week
-          </h1>
+          <h1 className="mt-2 ml-1.5 font-bold font-sans">Zero Emission Week</h1>
           <h4 className="mt-2 ml-1.5">
-            Use eco-fiendly transporataion for a week.
+            Use eco-friendly transportation for a week.
           </h4>
-          <button className="bg-green-700 p- text-white w-full rounded-lg mt-4 p-1">
+          <button className="bg-green-700 text-white w-full rounded-lg mt-4 py-2">
             Join Challenge
           </button>
         </div>
-        <div className="ch-1 bg-neutral-400 w-96 p-2 mt-16 h-44 rounded-xl">
+        {/* Challenge 2 */}
+        <div className="ch-1 bg-neutral-400 w-full sm:w-80 md:w-96 p-4 mt-8 h-auto rounded-xl">
           <div className="icons flex justify-between">
             <FontAwesomeIcon
               size="xl"
@@ -65,45 +65,44 @@ const HomeContent = () => {
               className="p-2"
               style={{ color: "green" }}
             />
-            <h3 className="bg-green-300 m-1 rounded-full px-1.5 text-green-800 ">
+            <h3 className="bg-green-300 m-1 rounded-full px-1.5 text-green-800">
               15 days left
             </h3>
           </div>
-          <h1 className="mt-2 ml-1.5 font-bold font-sans">
-            Plastic Free Month
-          </h1>
+          <h1 className="mt-2 ml-1.5 font-bold font-sans">Plastic Free Month</h1>
           <h4 className="mt-2 ml-1.5">
-            Eliminate Single use plastic from your life
+            Eliminate single-use plastic from your life.
           </h4>
-          <button className="bg-green-700 p- text-white w-full rounded-lg mt-4 p-1">
+          <button className="bg-green-700 text-white w-full rounded-lg mt-4 py-2">
             Join Challenge
           </button>
         </div>
-        <div className="ch-1 bg-neutral-400 w-96 p-2 mt-16 h-44 rounded-xl">
+        {/* Challenge 3 */}
+        <div className="ch-1 bg-neutral-400 w-full sm:w-80 md:w-96 p-4 mt-8 h-auto rounded-xl">
           <div className="icons flex justify-between">
             <FontAwesomeIcon
               size="xl"
               icon={faLeaf}
-              className=" p-2"
+              className="p-2"
               style={{ color: "green" }}
             />
-            <h3 className="bg-green-300 m-1 rounded-full px-1.5 text-green-800 ">
+            <h3 className="bg-green-300 m-1 rounded-full px-1.5 text-green-800">
               30 days left
             </h3>
           </div>
           <h1 className="mt-2 ml-1.5 font-bold font-sans">Community Garden</h1>
           <h4 className="mt-2 ml-1.5">Start your own vegetable garden</h4>
-          <button className="bg-green-700 p- text-white w-full rounded-lg mt-4 p-1">
+          <button className="bg-green-700 text-white w-full rounded-lg mt-4 py-2">
             Join Challenge
           </button>
         </div>
       </div>
+
       <section className="mb-8">
-        <h1 className=" text-green-300 font-bold font-sans text-left ml-16 text-[28px] mt-12  ">
+        <h1 className="text-green-300 font-bold font-sans text-left ml-4 sm:ml-12 text-[28px] mt-12">
           Community Highlights
         </h1>
-
-        <div className="grid grid-cols-1 ml-72 mt-16 sm:grid-cols-2 lg:grid-cols-4 gap-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-8 px-4 sm:px-8">
           {highlights.map((highlight) => (
             <div
               key={highlight.id}
