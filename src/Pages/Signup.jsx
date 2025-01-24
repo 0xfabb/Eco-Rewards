@@ -6,6 +6,7 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import { auth } from "../Firebase";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
@@ -99,9 +100,9 @@ const SignupPage = () => {
         </form>
         <p className="text-sm text-gray-600 mt-4 text-center">
           Already have an account?{" "}
-          <a href="/login" className="text-green-500 hover:underline">
+          <Link to = "/login" className="text-green-500 hover:underline">
             Log In
-          </a>
+          </Link>
         </p>
       </div>
     </div>
