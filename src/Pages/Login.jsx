@@ -2,7 +2,7 @@ import { useState } from "react";
 import "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../Firebase";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
@@ -83,9 +83,9 @@ const LoginPage = () => {
         </form>
         <p className="text-sm text-gray-600 mt-4 text-center">
           Dont have an account?{" "}
-          <a href="/signup" className="text-green-500 hover:underline">
+          <Link to="/signup" className="text-green-500 hover:underline">
             Sign Up
-          </a>
+          </Link>
         </p>
       </div>
     </div>

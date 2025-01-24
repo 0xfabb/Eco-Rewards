@@ -1,15 +1,25 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHouse, faPen, faComments, faMedal, faLeaf } from "@fortawesome/free-solid-svg-icons";
+import {
+  faHouse,
+  faPen,
+  faComments,
+  faMedal,
+  faLeaf,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const gotToNewPage = () => {
-    // Redirect or handle button click
+    navigate("/Signup");
   };
 
   return (
     <div className="bg-[#121212] w-full h-14 flex justify-between items-center px-6">
-      <Link to="/" className="text-white font-bold text-2xl flex items-center space-x-2">
+      <Link
+        to="/"
+        className="text-white font-bold text-2xl flex items-center space-x-2"
+      >
         <FontAwesomeIcon icon={faLeaf} style={{ color: "green" }} size="lg" />
         <span>EcoRewards</span>
       </Link>
