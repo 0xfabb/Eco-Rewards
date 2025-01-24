@@ -8,19 +8,25 @@ const Hero = () => {
     navigate("/Signup");
   }
   return (
-    
-    <div className="overflow-hidden">
-      <div className="herosect overflow-hidden w-screen h-1/3 text-on-image ">
-        <h1 className="text-center mt-16 text-white font-bold text-[64px]">
-          Be the Change for a Greener Planet
-        </h1>
-        <h3 className="text-center mt-10 text-[28px] text-white font-bold">
-          Join our Community, take action, and earn rewards
-        </h3>
-        <button onClick={() => gotToNewPage()} className="bg-green-500 text-black mt-9 hover:bg-green-400 hover:text-white ml-[700px] font-semibold rounded-full px-5 py-3 ">Get Started </button>
-      </div>
+    <div className="herosect">
+    <div className="bg-cover bg-center h-screen relative text-white flex flex-col items-center justify-center bg-[url('/path-to-your-image.jpg')]">
+      <h1 className="text-4xl md:text-6xl font-bold text-center">
+        Be the Change for a Greener Planet
+      </h1>
+      <h3 className="mt-6 text-2xl md:text-3xl font-bold text-center">
+        Join our Community, take action, and earn rewards
+      </h3>
+      <button
+        onClick={gotToNewPage}
+        className="mt-8 bg-green-500 hover:bg-green-400 text-black font-semibold rounded-full py-2 px-4 md:px-6 md:py-3"
+      >
+        Get Started
+      </button>
+    </div>
     </div>
   );
+  
 };
 
 export default Hero;
+

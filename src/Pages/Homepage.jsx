@@ -1,5 +1,5 @@
-import "react";
 import { useEffect, useState } from "react";
+import 'react'
 import Footer from "../Components/Footer";
 import HomeContent from "../PageComponents/HomeContent";
 import { onAuthStateChanged } from "firebase/auth";
@@ -16,11 +16,7 @@ const Homepage = () => {
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUser(user);
-      } else {
-        setUser(null);
-      }
+      setUser(user || null);
     });
   }, []);
 
@@ -28,66 +24,63 @@ const Homepage = () => {
     return (
       <>
         <Navbar />
-        <Signup />
-        <Login />
+        <div className="flex flex-col items-center justify-center min-h-screen p-4">
+          <Signup />
+          <Login />
+        </div>
       </>
     );
   }
 
-  
   return (
-    <div>
+    <div className="bg-gray-100 text-black">
       <LoggedNav />
-      <div className="hero w-full h-[400px] bg-gradient-to-r from-green-300 to-green-200 flex flex-col justify-center items-center text-center px-4 md:px-8 lg:px-16">
-        <h1 className="text-green-300 text-sm md:text-lg lg:text-xl">....</h1>
-        <h1 className="font-semibold text-2xl md:text-3xl lg:text-4xl mt-5 font-sans">
-          Welcome back {auth.currentUser.displayName}
+      {/* Hero Section */}
+      <div className="hero w-full h-auto bg-gradient-to-r from-green-300 to-green-200 flex flex-col justify-center items-center text-center py-8 px-4 sm:px-8 lg:px-16">
+        <h1 className="text-green-800 text-sm sm:text-lg lg:text-xl tracking-wide">
+          EcoRewards
         </h1>
-        <h3 className="text-lg md:text-xl lg:text-2xl mt-8 text-opacity-90">
+        <h1 className="font-semibold text-2xl sm:text-3xl lg:text-4xl mt-4">
+          Welcome back, {auth.currentUser.displayName}!
+        </h1>
+        <h3 className="text-md sm:text-lg lg:text-xl mt-6 text-gray-700">
           Small Actions Today Create Big Changes Tomorrow
         </h3>
-        <div className="boxes flex flex-wrap gap-8 justify-center mt-12">
+        {/* Info Boxes */}
+        <div className="flex flex-wrap gap-6 justify-center mt-10">
           {/* Box 1 */}
-          <div className="box1 bg-slate-200 w-full sm:w-72 md:w-80 lg:w-72 h-36 rounded-2xl flex flex-col items-center justify-center">
-            <h1 className="text-center font-bold text-3xl">
-              <FontAwesomeIcon
-                size="2xl"
-                icon={faTree}
-                style={{ color: "green" }}
-              />
-              <br />
-              156
-            </h1>
-            <h3 className="text-center">Trees Planted</h3>
+          <div className="box bg-white shadow-md w-full sm:w-64 lg:w-72 h-36 rounded-xl flex flex-col items-center justify-center border-t-4 border-green-500">
+            <FontAwesomeIcon
+              icon={faTree}
+              size="2x"
+              className="text-green-500 mb-2"
+            />
+            <h1 className="font-bold text-2xl">156</h1>
+            <h3 className="text-gray-600 text-sm">Trees Planted</h3>
           </div>
           {/* Box 2 */}
-          <div className="box2 bg-slate-200 w-full sm:w-72 md:w-80 lg:w-72 h-36 rounded-2xl flex flex-col items-center justify-center">
-            <h1 className="text-center font-bold text-3xl">
-              <FontAwesomeIcon
-                size="2xl"
-                icon={faCoins}
-                style={{ color: "green" }}
-              />
-              <br />
-              2450
-            </h1>
-            <h3 className="text-center">Points Earned</h3>
+          <div className="box bg-white shadow-md w-full sm:w-64 lg:w-72 h-36 rounded-xl flex flex-col items-center justify-center border-t-4 border-green-500">
+            <FontAwesomeIcon
+              icon={faCoins}
+              size="2x"
+              className="text-green-500 mb-2"
+            />
+            <h1 className="font-bold text-2xl">2450</h1>
+            <h3 className="text-gray-600 text-sm">Points Earned</h3>
           </div>
           {/* Box 3 */}
-          <div className="box3 bg-slate-200 w-full sm:w-72 md:w-80 lg:w-72 h-36 rounded-2xl flex flex-col items-center justify-center">
-            <h1 className="text-center font-bold text-3xl">
-              <FontAwesomeIcon
-                size="2xl"
-                icon={faMedal}
-                style={{ color: "green" }}
-              />
-              <br />
-              Earth Guardian
-            </h1>
-            <h3 className="text-center">Latest Achievement</h3>
+          <div className="box bg-white shadow-md w-full sm:w-64 lg:w-72 h-36 rounded-xl flex flex-col items-center justify-center border-t-4 border-green-500">
+            <FontAwesomeIcon
+              icon={faMedal}
+              size="2x"
+              className="text-green-500 mb-2"
+            />
+            <h1 className="font-bold text-2xl">Earth Guardian</h1>
+            <h3 className="text-gray-600 text-sm">Latest Achievement</h3>
           </div>
         </div>
       </div>
+      {/* Additional Content */}
       <HomeContent />
       <Footer />
     </div>

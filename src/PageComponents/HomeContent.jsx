@@ -1,6 +1,5 @@
 import {
   faHeart,
-  faLeaf,
   faMotorcycle,
   faRecycle,
 } from "@fortawesome/free-solid-svg-icons";
@@ -30,90 +29,75 @@ const HomeContent = () => {
   ];
 
   return (
-    <div>
-      <h1 className="text-green-300 font-bold font-sans text-left ml-4 sm:ml-12 text-[28px] mt-12">
-        Active Challenges
-      </h1>
-      <div className="active-challenges flex flex-wrap gap-8 justify-center mt-8">
-        {/* Challenge 1 */}
-        <div className="ch-1 bg-neutral-400 w-full sm:w-80 md:w-96 p-4 mt-8 h-auto rounded-xl">
-          <div className="icons flex justify-between">
-            <FontAwesomeIcon
-              size="xl"
-              icon={faMotorcycle}
-              className="p-2"
-              style={{ color: "green" }}
-            />
-            <h3 className="bg-green-300 m-1 rounded-full px-1.5 text-green-800">
-              7 days left
-            </h3>
-          </div>
-          <h1 className="mt-2 ml-1.5 font-bold font-sans">Zero Emission Week</h1>
-          <h4 className="mt-2 ml-1.5">
-            Use eco-friendly transportation for a week.
-          </h4>
-          <button className="bg-green-700 text-white w-full rounded-lg mt-4 py-2">
-            Join Challenge
-          </button>
-        </div>
-        {/* Challenge 2 */}
-        <div className="ch-1 bg-neutral-400 w-full sm:w-80 md:w-96 p-4 mt-8 h-auto rounded-xl">
-          <div className="icons flex justify-between">
-            <FontAwesomeIcon
-              size="xl"
-              icon={faRecycle}
-              className="p-2"
-              style={{ color: "green" }}
-            />
-            <h3 className="bg-green-300 m-1 rounded-full px-1.5 text-green-800">
-              15 days left
-            </h3>
-          </div>
-          <h1 className="mt-2 ml-1.5 font-bold font-sans">Plastic Free Month</h1>
-          <h4 className="mt-2 ml-1.5">
-            Eliminate single-use plastic from your life.
-          </h4>
-          <button className="bg-green-700 text-white w-full rounded-lg mt-4 py-2">
-            Join Challenge
-          </button>
-        </div>
-        {/* Challenge 3 */}
-        <div className="ch-1 bg-neutral-400 w-full sm:w-80 md:w-96 p-4 mt-8 h-auto rounded-xl">
-          <div className="icons flex justify-between">
-            <FontAwesomeIcon
-              size="xl"
-              icon={faLeaf}
-              className="p-2"
-              style={{ color: "green" }}
-            />
-            <h3 className="bg-green-300 m-1 rounded-full px-1.5 text-green-800">
-              30 days left
-            </h3>
-          </div>
-          <h1 className="mt-2 ml-1.5 font-bold font-sans">Community Garden</h1>
-          <h4 className="mt-2 ml-1.5">Start your own vegetable garden</h4>
-          <button className="bg-green-700 text-white w-full rounded-lg mt-4 py-2">
-            Join Challenge
-          </button>
-        </div>
-      </div>
+    <div className="px-4 sm:px-8 lg:px-16 bg-gray-100 min-h-screen -mt-4">
 
-      <section className="mb-8">
-        <h1 className="text-green-300 font-bold font-sans text-left ml-4 sm:ml-12 text-[28px] mt-12">
+      {/* Active Challenges */}
+      <section className="mt-12 pt-3">
+        <h1 className="text-green-800 font-bold text-xl text-center">
+          Active Challenges
+        </h1>
+        <div className="flex flex-col gap-6 mt-6">
+          {/* Challenge Card */}
+          <div className="bg-white p-4 rounded-lg shadow-md">
+            <div className="flex justify-between items-center">
+              <FontAwesomeIcon
+                icon={faMotorcycle}
+                size="lg"
+                className="text-green-600"
+              />
+              <span className="bg-green-300 text-green-800 text-xs px-2 py-1 rounded-full">
+                7 days left
+              </span>
+            </div>
+            <h2 className="text-lg font-semibold mt-4">Zero Emission Week</h2>
+            <p className="text-gray-600 mt-2 text-sm">
+              Use eco-friendly transportation for a week.
+            </p>
+            <button className="mt-4 w-full bg-green-600 text-white py-2 rounded-lg">
+              Join Challenge
+            </button>
+          </div>
+
+          {/* Additional Challenge Cards */}
+          <div className="bg-white p-4 rounded-lg shadow-md">
+            <div className="flex justify-between items-center">
+              <FontAwesomeIcon
+                icon={faRecycle}
+                size="lg"
+                className="text-green-600"
+              />
+              <span className="bg-green-300 text-green-800 text-xs px-2 py-1 rounded-full">
+                15 days left
+              </span>
+            </div>
+            <h2 className="text-lg font-semibold mt-4">Plastic Free Month</h2>
+            <p className="text-gray-600 mt-2 text-sm">
+              Eliminate single-use plastic from your life.
+            </p>
+            <button className="mt-4 w-full bg-green-600 text-white py-2 rounded-lg">
+              Join Challenge
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Community Highlights */}
+      <section className="mt-12">
+        <h1 className="text-green-800 font-bold text-xl text-center">
           Community Highlights
         </h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-8 px-4 sm:px-8">
+        <div className="grid grid-cols-1 gap-4 mt-6">
           {highlights.map((highlight) => (
             <div
               key={highlight.id}
-              className="bg-white rounded-lg shadow p-4 flex flex-col"
+              className="bg-white p-4 rounded-lg shadow-md"
             >
-              <p className="text-gray-700 mb-4">{highlight.message}</p>
-              <div className="flex justify-between items-center text-sm text-gray-500">
+              <p className="text-gray-700 mb-2">{highlight.message}</p>
+              <div className="flex justify-between text-sm text-gray-500">
                 <span>{highlight.time}</span>
-                <span className="flex items-center space-x-1">
-                  <FontAwesomeIcon size="lg" icon={faHeart} />
-                  <span>{highlight.likes}</span>
+                <span className="flex items-center gap-1">
+                  <FontAwesomeIcon icon={faHeart} />
+                  {highlight.likes}
                 </span>
               </div>
             </div>
