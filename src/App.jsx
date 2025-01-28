@@ -18,12 +18,14 @@ import Homepage from "./Pages/Homepage";
 import Login from "./Pages/Login";
 import Writeblog from "./Pages/Writeblog";
 import LandingFooter from "./Components/LandingFooter";
+import Blogdetails from "./Pages/Blogdetails"
 
 function App() {
   return (
     <div className="overflow-hidden">
       <Router>
         <Routes>
+
           <Route
             path="/"
             element={
@@ -36,8 +38,8 @@ function App() {
                 <LandingFooter />
               </div>
             }
-          />
-
+          /> 
+           <Route path="/blog/:id" element={<Blogdetails />} />
           <Route
             path="/Community"
             element={

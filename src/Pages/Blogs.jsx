@@ -1,109 +1,82 @@
-import 'react';
-import { useState, useEffect } from 'react';
-import LoggedNav from '../Components/LoggedNav';
-import Footer from '../Components/Footer';
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../Firebase';
-import Navbar from '../Components/Navbar';
-import Signup from './Signup';
-import Login from './Login';
+import { useState, useEffect } from "react";
+import "react";
 import { Link } from "react-router-dom";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../Firebase";
+import LoggedNav from "../Components/LoggedNav";
+import Footer from "../Components/Footer";
+import Navbar from "../Components/Navbar";
+import Signup from "./Signup";
+import Login from "./Login";
+import blogs from "../PageComponents/blogs";
 
 const Blogs = () => {
-  const blogs = [
-    {
-      id: "1",
-      title: "10 Simple Ways to Reduce Plastic Waste",
-      category: "Trending",
-      author: "Jane Green",
-      date: "2025-01-10",
-      readTime: "5 min read",
-    },
-    {
-      id: "2",
-      title: "The Benefits of Planting Trees",
-      category: "Hot",
-      author: "John Oak",
-      date: "2025-01-15",
-      readTime: "6 min read",
-    },
-    {
-      id: "3",
-      title: "How to Start Composting: A Beginner’s Guide",
-      category: "Trending",
-      author: "Emma Soil",
-      date: "2025-01-20",
-      readTime: "7 min read",
-    },
-  ];
-
-
-    const [user, setUser] = useState(null);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
-   onAuthStateChanged(auth, (user) => {
-    if(user){
-      setUser(user)
-    }else{
-      setUser(null)
-    }
-   })
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user);
+      } else {
+        setUser(null);
+      }
+    });
   }, []);
 
-  if(user === null ){
+  if (user === null) {
     return (
       <>
-      <Navbar />
-      <Signup />
-      <Login />
+        <Navbar />
+        <Signup />
+        <Login />
       </>
-    )
+    );
   }
-    return (
-        <div className='bg-gray-100'>
-            <LoggedNav />
-            <div className="min-h-screen bg-gray-100 p-6">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-6">
-        {/* Blog List */}
-        <div className="md:col-span-3">
-          <h1 className="text-2xl font-bold mb-4">Blogs</h1>
-          <div className="grid gap-4">
-            {blogs.map((blog) => (
-              <div
-                key={blog.id}
-                className="bg-white p-4 rounded-md shadow-md hover:shadow-lg transition"
-              >
-                <h2 className="text-lg font-semibold text-green-600">
-                  {blog.title}
-                </h2>
-                <p className="text-sm text-gray-600">{blog.category}</p>
-                <p className="text-sm text-gray-500">
-                  By {blog.author} on {blog.date} • {blog.readTime}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
 
-        {/* Write a Blog Button */}
-        <div className="md:col-span-1">
-          <div className="bg-white p-4 rounded-md shadow-md">
-            <h2 className="text-lg font-bold mb-4">Contribute</h2>
-            <Link
-              to="/Writeblog"
-              className="w-full bg-green-600 text-white text-center py-2 rounded-md hover:bg-green-700 transition block"
-            >
-              Write a Blog
-            </Link>
+  return (
+    <div className="bg-gray-100">
+      <LoggedNav />
+      <div className="min-h-screen bg-gray-100 p-6">
+        <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-6">
+          {/* Blog List */}
+          <div className="md:col-span-3">
+            <h1 className="text-2xl font-bold mb-4">Blogs</h1>
+            <div className="grid gap-4">
+              {blogs.map((blog, index) => (
+                <Link to={`/blog/${index}`} key={index}>
+                  <div className="bg-white p-4 rounded-md shadow-md hover:shadow-lg transition">
+                    <h2 className="text-lg font-semibold text-green-600">
+                      {blog.title}
+                    </h2>
+                    <p className="text-sm text-gray-600">
+                      {blog.display_description}
+                    </p>
+                    <p className="text-sm text-gray-500">
+                      By {blog.author} on {blog.publish_date}
+                    </p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Write a Blog Button */}
+          <div className="md:col-span-1">
+            <div className="bg-white p-4 rounded-md shadow-md">
+              <h2 className="text-lg font-bold mb-4">Contribute</h2>
+              <Link
+                to="/Writeblog"
+                className="w-full bg-green-600 text-white text-center py-2 rounded-md hover:bg-green-700 transition block"
+              >
+                Write a Blog
+              </Link>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-     
       <Footer />
     </div>
-
-    )
-}
+  );
+};
 
 export default Blogs;

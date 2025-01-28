@@ -5,7 +5,7 @@ const Footer = () => {
     <div>
       <footer className="flex md:w-[1440px] md:ml-6 h-36 mt-72 text-black flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 py-6 text-center md:justify-between">
           <Typography color="blue-gray" className="font-normal">
-            &copy; 2023 Eco-Rewrads
+            &copy; 2024 Eco-Rewrads
           </Typography>
           <ul className="flex flex-wrap items-center gap-y-2 gap-x-8">
             <li>
